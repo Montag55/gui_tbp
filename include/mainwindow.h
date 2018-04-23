@@ -7,6 +7,9 @@
 #include <QLabel>
 #include <QSpinBox>
 #include <QStackedWidget>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QScreen>
 #include "RangeWidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -17,6 +20,7 @@ class QLabel;
 class QSpinBox;
 class QStackedWidget;
 class QGridLayout;
+class QPushButton;
 QT_END_NAMESPACE
 
 namespace Ui {
@@ -30,13 +34,19 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void *on_addButoon_click();
+
 private:
     QGroupBox *createControls(const QString &title);
+    QLabel *createImage(const QString &title);
 
-    QLabel          *minimumLabel;
-    QLabel          *maximumLabel;
-    QSpinBox        *minimumSpinBox;
-    QSpinBox        *maximumSpinBox;
+
+    int count_sliders;
+    QGridLayout *grid;
+    QGridLayout *controlsLayout;
+    std::vector<RangeWidget*> rangesliders;
+
 };
 
 #endif // MAINWINDOW_H
