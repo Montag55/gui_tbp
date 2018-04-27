@@ -188,7 +188,6 @@ DIST          = /home/Programs/Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/features/qt_config.prf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/features/spec_post.prf \
-		../../../../.qmake.stash \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/features/default_pre.prf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/features/resolve_config.prf \
@@ -352,7 +351,6 @@ Makefile: ../gui_tbp.pro ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/spe
 		../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Programs/Qt/5.7/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/spec_post.prf \
-		../../../.qmake.stash \
 		../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/default_pre.prf \
 		../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/resolve_config.prf \
@@ -506,7 +504,6 @@ Makefile: ../gui_tbp.pro ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/spe
 ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Programs/Qt/5.7/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/spec_post.prf:
-../../../.qmake.stash:
 ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/default_pre.prf:
 ../../../../Programs/Qt/5.7/gcc_64/mkspecs/features/resolve_config.prf:
@@ -554,6 +551,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -689,6 +687,20 @@ moc_mainwindow.cpp: ../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QMainWi
 		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStackedWidget \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstackedwidget.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QScrollArea \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qscrollarea.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QScreen \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qscreen.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QList \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QObject \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QRect \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QSize \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QSizeF \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QTransform \
 		../include/RangeWidget.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QPainter \
@@ -948,6 +960,20 @@ main.o: ../src/main.cpp ../include/mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStackedWidget \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstackedwidget.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QScrollArea \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qscrollarea.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QScreen \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qscreen.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QList \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QObject \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QRect \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QSize \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QSizeF \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QTransform \
 		../include/RangeWidget.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QPainter \
@@ -1084,6 +1110,20 @@ mainwindow.o: ../src/mainwindow.cpp ../include/mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStackedWidget \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstackedwidget.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QScrollArea \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qscrollarea.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QScreen \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qscreen.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QList \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QObject \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QRect \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QSize \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QSizeF \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QTransform \
 		../include/RangeWidget.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QPainter \
@@ -1093,7 +1133,38 @@ mainwindow.o: ../src/mainwindow.cpp ../include/mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStyle \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QMouseEvent \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QVariant \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QAction \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QApplication \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qslider.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QMenuBar \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStatusBar \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QToolBar \
+		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qtoolbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../src/mainwindow.cpp
 
 RangeWidget.o: ../src/RangeWidget.cpp ../include/RangeWidget.h \
