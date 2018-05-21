@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->grid->addWidget(createControls("Nummber 1"), 3, 0, 1, 2);
     this->setLayout(grid);
 
+    this->base = new Base("/home/lucas/Video/videoplayback");
+
     setWindowTitle(tr("Gui Example"));
     resize(800, 600);
 }

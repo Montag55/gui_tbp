@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <opencv2/opencv.hpp>
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QGroupBox>
@@ -11,6 +12,9 @@
 #include <QScrollArea>
 #include <QScreen>
 #include "RangeWidget.h"
+#include <libtbp/include/base.hpp>
+#include <libtbp/include/segment.hpp>
+
 
 QT_BEGIN_NAMESPACE
 class QCheckBox;
@@ -45,6 +49,7 @@ private:
     int count_sliders;
     QGridLayout *grid;
     QGridLayout *controlsLayout;
+    Base* base;
     std::vector<RangeWidget*> rangesliders;
 
 };

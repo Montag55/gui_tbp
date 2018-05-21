@@ -8,16 +8,23 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = gui_tbp
-TEMPLATE = app
-DEFINES += QT_DEPRECATED_WARNINGS
-
+TARGET      = gui_tbp
+TEMPLATE    = app
+DEFINES     += QT_DEPRECATED_WARNINGS
 
 SOURCES +=  src/main.cpp\
             src/mainwindow.cpp\
-            src/RangeWidget.cpp
+            src/RangeWidget.cpp\
+            libtbp/src/segment.cpp\
+            libtbp/src/base.cpp
 
-HEADERS  += include/mainwindow.h\
-            include/RangeWidget.h
+HEADERS += include/mainwindow.h\
+           include/RangeWidget.h\
+           libtbp/inculde/segment.hpp\
+           libtbp/include/base.hpp
 
-FORMS    += forms/mainwindow.ui
+FORMS   += forms/mainwindow.ui
+
+
+INCLUDEPATH += /usr/local/include/opencv
+LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui
