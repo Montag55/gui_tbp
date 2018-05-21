@@ -7,7 +7,7 @@ to a base/mother. we can interpret such a segment in different ways. maybe we se
 segment and interpretation later...
 */
 
-#include <opencv2/opencv.hpp> //opencv library
+#include <opencv2/opencv.hpp>
 #include <string.h>
 
 class Base;                   //forward declaraiton

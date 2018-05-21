@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,16 +16,16 @@ DEFINES     += QT_DEPRECATED_WARNINGS
 SOURCES +=  src/main.cpp\
             src/mainwindow.cpp\
             src/RangeWidget.cpp\
-            libtbp/src/segment.cpp\
-            libtbp/src/base.cpp
+            lib/libtbp/src/segment.cpp\
+            lib/libtbp/src/base.cpp
 
 HEADERS += include/mainwindow.h\
            include/RangeWidget.h\
-           libtbp/inculde/segment.hpp\
-           libtbp/include/base.hpp
+           lib/libtbp/include/segment.hpp\
+           lib/libtbp/include/base.hpp\
 
 FORMS   += forms/mainwindow.ui
 
-
-INCLUDEPATH += /usr/local/include/opencv
-LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui
+unix:!macx: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_videoio -lopencv_imgcodecs
+INCLUDEPATH += $$PWD/../../../../../usr/local/include
+DEPENDPATH += $$PWD/../../../../../usr/local/include

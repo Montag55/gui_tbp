@@ -14,7 +14,7 @@ class Segment;                  //forward declaration
 #include <opencv2/opencv.hpp>   //to acces images & videos
 #include <string.h>             //<3 string
 #include <vector>
-#include <libtbp/include/segment.hpp>
+#include <lib/libtbp/include/segment.hpp>
 
 using namespace cv;
 using namespace std;

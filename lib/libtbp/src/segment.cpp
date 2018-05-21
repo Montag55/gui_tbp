@@ -1,7 +1,6 @@
-#include <libtbp/include/segment.hpp>
-#include <libtbp/include/base.hpp>
+#include <lib/libtbp/include/segment.hpp>
+#include <lib/libtbp/include/base.hpp>
 
-#include <opencv2/opencv.hpp>
 #include <string.h>
 #include <math.h>
 using namespace cv;
