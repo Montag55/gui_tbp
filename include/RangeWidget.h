@@ -19,7 +19,7 @@ private:
     Qt::Orientation _orientation;
 
     //int id;
-    Segment* segment;
+   // Segment* segment;
     int _handleWidth;
     int _handleHeight;
     int _minimum;
@@ -45,7 +45,7 @@ protected:
     qreal span() const;
 
 public:
-    RangeWidget(Qt::Orientation orientation = Qt::Vertical, Segment* segment_in=nullptr, QWidget *parent = nullptr);
+    RangeWidget(Qt::Orientation orientation = Qt::Vertical/*, Segment* segment_in=nullptr*/, QWidget *parent = nullptr);
 
     QSize minimumSizeHint() const;
 

@@ -56,8 +56,11 @@ QGroupBox *MainWindow::createControls(const QString &title) {
 
     int startframe=0;
     int endframe= 10;
-    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal,base->add_segment(startframe, endframe));
+    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
     this->count_sliders += 1;
+    //signal connect interfaces!:
+    //connect(rangeSlider, SIGNAL(firstValueChanged(int firstValue)), this, SLOT(on_addButoon_click()));
+
     //rangesliders.push_back(rangeSlider);
 
     QPushButton *addButton = new QPushButton("Add", this);
@@ -77,7 +80,9 @@ void *MainWindow::on_addButoon_click(){
     std::cout << "added slider" << std::endl;
     int startframe=0;
     int endframe= 10;
-    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal,base->add_segment(startframe, endframe));
+    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
+    //connect to segment!:
+
     this->controlsLayout->addWidget(rangeSlider,this->count_sliders + 1, 0, this->count_sliders + 1, 5);
     this->count_sliders += 1;
 }
