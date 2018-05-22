@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QStyle>
 #include <QMouseEvent>
+#include <lib/libtbp/include/base.hpp>
+#include <lib/libtbp/include/segment.hpp>
 
 class RangeWidget : public QWidget {
 
@@ -16,6 +18,8 @@ private:
 
     Qt::Orientation _orientation;
 
+    //int id;
+    Segment* segment;
     int _handleWidth;
     int _handleHeight;
     int _minimum;
@@ -41,7 +45,7 @@ protected:
     qreal span() const;
 
 public:
-    RangeWidget(Qt::Orientation orientation = Qt::Vertical, QWidget *parent = nullptr);
+    RangeWidget(Qt::Orientation orientation = Qt::Vertical, Segment* segment_in=nullptr, QWidget *parent = nullptr);
 
     QSize minimumSizeHint() const;
 

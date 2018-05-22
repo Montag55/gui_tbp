@@ -12,8 +12,8 @@
 #include <QScrollArea>
 #include <QScreen>
 #include "RangeWidget.h"
-#include <libtbp/include/base.hpp>
-#include <libtbp/include/segment.hpp>
+#include <lib/libtbp/include/base.hpp>
+#include <lib/libtbp/include/segment.hpp>
 
 
 QT_BEGIN_NAMESPACE
@@ -51,6 +51,7 @@ private:
     QGridLayout *controlsLayout;
     Base* base;
     std::vector<RangeWidget*> rangesliders;
+    std::vector<Segment*> segments;
 
 };
 

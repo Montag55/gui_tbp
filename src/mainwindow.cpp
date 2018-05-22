@@ -4,6 +4,10 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent) {
+
+    this->base = new Base("/home/hagen/Desktop/test.mp4");
+
+
     this->count_sliders = 1;
     this->grid = new QGridLayout;
     this->controlsLayout = new QGridLayout;
@@ -13,17 +17,19 @@ MainWindow::MainWindow(QWidget *parent) :
     this->grid->addWidget(createControls("Nummber 1"), 3, 0, 1, 2);
     this->setLayout(grid);
 
-    this->base = new Base("/home/lucas/Video/videoplayback");
-
-    setWindowTitle(tr("Gui Example"));
+    setWindowTitle(tr("Time-Based-Picture"));
     resize(800, 600);
+
+}
+void test_f(){
+    std::cout<<"test\n";
 }
 
 QLabel *MainWindow::createImage(const QString &path){
 
     QLabel *imageLabel = new QLabel;
     QScrollArea* scrollArea = new QScrollArea;
-    QImage image("/home/lucas/Pictures/1.jpg");
+    QImage image("/home/hagen/Desktop/test.jpg");
 
     imageLabel->setPixmap(QPixmap::fromImage(image));
     imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
@@ -48,8 +54,11 @@ QGroupBox *MainWindow::createControls(const QString &title) {
     maximumSpinBox->setRange(0, 100);
     maximumSpinBox->setSingleStep(1);
 
-    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
+    int startframe=0;
+    int endframe= 10;
+    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal,base->add_segment(startframe, endframe));
     this->count_sliders += 1;
+    //rangesliders.push_back(rangeSlider);
 
     QPushButton *addButton = new QPushButton("Add", this);
     connect(addButton, SIGNAL(clicked()), this, SLOT(on_addButoon_click()));
@@ -66,7 +75,9 @@ QGroupBox *MainWindow::createControls(const QString &title) {
 
 void *MainWindow::on_addButoon_click(){
     std::cout << "added slider" << std::endl;
-    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
+    int startframe=0;
+    int endframe= 10;
+    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal,base->add_segment(startframe, endframe));
     this->controlsLayout->addWidget(rangeSlider,this->count_sliders + 1, 0, this->count_sliders + 1, 5);
     this->count_sliders += 1;
 }

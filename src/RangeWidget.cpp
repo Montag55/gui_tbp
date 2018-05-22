@@ -1,14 +1,16 @@
 #include "include/RangeWidget.h"
 
 #include <QtDebug>
+#include <iostream>
 
-RangeWidget::RangeWidget(Qt::Orientation orientation, QWidget *parent):
+RangeWidget::RangeWidget(Qt::Orientation orientation,Segment* segment_in, QWidget *parent):
+      segment(segment_in),
       QWidget(parent),
       _orientation(orientation),
       _handleWidth(10),
       _handleHeight(10),
       _minimum(0),
-      _maximum(1000),
+      _maximum(segment->maximum()),
       _firstValue(100),
       _secondValue(900),
       _firstHandlePressed(false),
@@ -155,8 +157,8 @@ void RangeWidget::setSecondValue(int secondValue) {
         secondValue = _minimum;
 
     _secondValue = secondValue;
+    segment->set_endframe(secondValue);
     emit secondValueChanged(_secondValue);
-
     update();
 }
 
@@ -169,6 +171,7 @@ void RangeWidget::setFirstValue(int firstValue) {
         firstValue = _minimum;
 
     _firstValue = firstValue;
+    segment->set_startframe(firstValue);
     emit firstValueChanged(_firstValue);
 
     update();

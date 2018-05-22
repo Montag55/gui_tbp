@@ -40,6 +40,7 @@ public:
   void set_local_intensity(float i);
   void set_global_intensity(float i);
 
+  int maximum();
 private:
   void ready_to_work(); //tell the mother to work!
 

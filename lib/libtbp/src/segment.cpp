@@ -412,6 +412,9 @@ void Segment::boost_diff() {
     ready_to_work();//to apply changes
   }
 
+  int Segment::maximum(){
+      return m_video.get(CV_CAP_PROP_FRAME_COUNT)-1;
+  }
 
 /*
 void Segment::boost_similarities(int power){
