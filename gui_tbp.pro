@@ -23,7 +23,8 @@ HEADERS += include/mainwindow.h\
            include/RangeWidget.h\
            lib/libtbp/include/segment.hpp\
            lib/libtbp/include/base.hpp \
-    include/Segment_Q.hpp
+           include/Segment_Q.hpp \
+           include/TimeManager.hpp
 
 FORMS   += forms/mainwindow.ui
 

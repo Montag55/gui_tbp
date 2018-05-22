@@ -14,7 +14,7 @@ using namespace cv;
 Base::Base(std::string const& video_name) :
 m_in_calculation{false},
 m_file {video_name},
-m_work_size{100},//defualt
+m_work_size{5},//defualt
 m_video{VideoCapture(m_file, cv::CAP_FFMPEG)},
 m_img_type{CV_32FC3},//http://ninghang.blogspot.de/2012/11/list-of-mat-type-in-opencv.html
 m_pnt_min{Point(0, 0)},

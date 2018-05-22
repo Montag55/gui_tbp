@@ -15,6 +15,7 @@
 #include <lib/libtbp/include/base.hpp>
 #include <lib/libtbp/include/segment.hpp>
 #include "Segment_Q.hpp"
+#include "TimeManager.hpp"
 
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +42,7 @@ public:
 
 private slots:
     void *on_addButoon_click();
+    void *routine();
 
 private:
     QGroupBox *createControls(const QString &title);
@@ -49,11 +51,13 @@ private:
 
 
     int count_sliders;
-    QGridLayout *grid;
-    QGridLayout *controlsLayout;
     Base* base;
-    std::vector<RangeWidget*> rangesliders;
+    QGridLayout *grid;
+    TimeManager *timer;
+    QLabel *imageLabel;
+    QGridLayout *controlsLayout;
     std::vector<Segment*> segments;
+    std::vector<RangeWidget*> rangesliders;
 
 };
 
