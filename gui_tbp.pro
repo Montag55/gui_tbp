@@ -22,7 +22,8 @@ SOURCES +=  src/main.cpp\
 HEADERS += include/mainwindow.h\
            include/RangeWidget.h\
            lib/libtbp/include/segment.hpp\
-           lib/libtbp/include/base.hpp\
+           lib/libtbp/include/base.hpp \
+    include/Segment_Q.hpp
 
 FORMS   += forms/mainwindow.ui
 

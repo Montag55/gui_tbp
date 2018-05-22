@@ -53,14 +53,16 @@ SOURCES       = ../src/main.cpp \
 		../src/RangeWidget.cpp \
 		../lib/libtbp/src/segment.cpp \
 		../lib/libtbp/src/base.cpp moc_mainwindow.cpp \
-		moc_RangeWidget.cpp
+		moc_RangeWidget.cpp \
+		moc_Segment_Q.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		RangeWidget.o \
 		segment.o \
 		base.o \
 		moc_mainwindow.o \
-		moc_RangeWidget.o
+		moc_RangeWidget.o \
+		moc_Segment_Q.o
 DIST          = /home/Programs/Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/common/unix.conf \
 		/home/Programs/Qt/5.7/gcc_64/mkspecs/common/linux.conf \
@@ -213,7 +215,8 @@ DIST          = /home/Programs/Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../../gui_tbp.pro ../include/mainwindow.h \
 		../include/RangeWidget.h \
 		../lib/libtbp/include/segment.hpp \
-		../lib/libtbp/include/base.hpp ../src/main.cpp \
+		../lib/libtbp/include/base.hpp \
+		../include/Segment_Q.hpp ../src/main.cpp \
 		../src/mainwindow.cpp \
 		../src/RangeWidget.cpp \
 		../lib/libtbp/src/segment.cpp \
@@ -550,7 +553,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../include/mainwindow.h ../include/RangeWidget.h ../lib/libtbp/include/segment.hpp ../lib/libtbp/include/base.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../include/mainwindow.h ../include/RangeWidget.h ../lib/libtbp/include/segment.hpp ../lib/libtbp/include/base.hpp ../include/Segment_Q.hpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../src/main.cpp ../src/mainwindow.cpp ../src/RangeWidget.cpp ../lib/libtbp/src/segment.cpp ../lib/libtbp/src/base.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../forms/mainwindow.ui $(DISTDIR)/
 
@@ -578,9 +581,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_RangeWidget.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_RangeWidget.cpp moc_Segment_Q.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_RangeWidget.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_RangeWidget.cpp moc_Segment_Q.cpp
 moc_mainwindow.cpp: ../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QMainWindow \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qmainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qwidget.h \
@@ -721,6 +724,8 @@ moc_mainwindow.cpp: ../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QMainWi
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStyle \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QMouseEvent \
+		../lib/libtbp/include/base.hpp \
+		../lib/libtbp/include/segment.hpp \
 		../include/mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/bin/moc
 	/home/lucas/Programs/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/lucas/Programs/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/lucas/Documents/git/gui_tbp -I/usr/local/include -I/home/lucas/Programs/Qt/5.7/gcc_64/include -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtWidgets -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtGui -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/mainwindow.h -o moc_mainwindow.cpp
@@ -830,9 +835,17 @@ moc_RangeWidget.cpp: ../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QWidge
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qicon.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QMouseEvent \
+		../lib/libtbp/include/base.hpp \
+		../lib/libtbp/include/segment.hpp \
 		../include/RangeWidget.h \
 		../../../../Programs/Qt/5.7/gcc_64/bin/moc
 	/home/lucas/Programs/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/lucas/Programs/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/lucas/Documents/git/gui_tbp -I/usr/local/include -I/home/lucas/Programs/Qt/5.7/gcc_64/include -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtWidgets -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtGui -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/RangeWidget.h -o moc_RangeWidget.cpp
+
+moc_Segment_Q.cpp: ../lib/libtbp/include/base.hpp \
+		../lib/libtbp/include/segment.hpp \
+		../include/Segment_Q.hpp \
+		../../../../Programs/Qt/5.7/gcc_64/bin/moc
+	/home/lucas/Programs/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/lucas/Programs/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/lucas/Documents/git/gui_tbp -I/usr/local/include -I/home/lucas/Programs/Qt/5.7/gcc_64/include -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtWidgets -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtGui -I/home/lucas/Programs/Qt/5.7/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../include/Segment_Q.hpp -o moc_Segment_Q.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -994,6 +1007,8 @@ main.o: ../src/main.cpp ../include/mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStyle \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QMouseEvent \
+		../lib/libtbp/include/base.hpp \
+		../lib/libtbp/include/segment.hpp \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QApplication \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1144,7 +1159,9 @@ mainwindow.o: ../src/mainwindow.cpp ../include/mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QStyle \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QMouseEvent \
-		ui_mainwindow.h \
+		../lib/libtbp/include/base.hpp \
+		../lib/libtbp/include/segment.hpp \
+		../ui_mainwindow.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QVariant \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/QAction \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
@@ -1284,6 +1301,8 @@ RangeWidget.o: ../src/RangeWidget.cpp ../include/RangeWidget.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/qicon.h \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtGui/QMouseEvent \
+		../lib/libtbp/include/base.hpp \
+		../lib/libtbp/include/segment.hpp \
 		../../../../Programs/Qt/5.7/gcc_64/include/QtCore/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o RangeWidget.o ../src/RangeWidget.cpp
 
@@ -1300,6 +1319,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_RangeWidget.o: moc_RangeWidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_RangeWidget.o moc_RangeWidget.cpp
+
+moc_Segment_Q.o: moc_Segment_Q.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Segment_Q.o moc_Segment_Q.cpp
 
 ####### Install
 

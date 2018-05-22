@@ -5,7 +5,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QWidget(parent) {
 
-    this->base = new Base("/home/hagen/Desktop/test.mp4");
+    this->base = new Base("/home/lucas/Videos/1.mp4");
 
 
     this->count_sliders = 1;
@@ -29,7 +29,7 @@ QLabel *MainWindow::createImage(const QString &path){
 
     QLabel *imageLabel = new QLabel;
     QScrollArea* scrollArea = new QScrollArea;
-    QImage image("/home/hagen/Desktop/test.jpg");
+    QImage image("/home/lucas/Pictures/1.jpg");
 
     imageLabel->setPixmap(QPixmap::fromImage(image));
     imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
@@ -58,10 +58,10 @@ QGroupBox *MainWindow::createControls(const QString &title) {
     int endframe= 10;
     RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
     this->count_sliders += 1;
-    //signal connect interfaces!:
-    //connect(rangeSlider, SIGNAL(firstValueChanged(int firstValue)), this, SLOT(on_addButoon_click()));
 
-    //rangesliders.push_back(rangeSlider);
+    //signal connect interfaces!:
+    Segment_Q *seg = new Segment_Q(base->add_segment(startframe, endframe));
+    connect(rangeSlider, SIGNAL(firstValueChanged(int)), seg, SLOT(set_firstVal(int)));
 
     QPushButton *addButton = new QPushButton("Add", this);
     connect(addButton, SIGNAL(clicked()), this, SLOT(on_addButoon_click()));
@@ -80,12 +80,14 @@ void *MainWindow::on_addButoon_click(){
     std::cout << "added slider" << std::endl;
     int startframe=0;
     int endframe= 10;
+
     RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
-    //connect to segment!:
+
+    Segment_Q *seg = new Segment_Q(base->add_segment(startframe, endframe));
+    connect(rangeSlider, SIGNAL(firstValueChanged(int)), seg, SLOT(set_firstVal(int)));
 
     this->controlsLayout->addWidget(rangeSlider,this->count_sliders + 1, 0, this->count_sliders + 1, 5);
     this->count_sliders += 1;
 }
-
 
 MainWindow::~MainWindow() {}

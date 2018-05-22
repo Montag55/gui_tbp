@@ -14,6 +14,7 @@
 #include "RangeWidget.h"
 #include <lib/libtbp/include/base.hpp>
 #include <lib/libtbp/include/segment.hpp>
+#include "Segment_Q.hpp"
 
 
 QT_BEGIN_NAMESPACE

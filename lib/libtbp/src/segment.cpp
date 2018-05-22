@@ -378,6 +378,7 @@ void Segment::boost_diff() {
   }
 
   void Segment::set_startframe(int imgs){
+    std::cout<<"set_new_frame"<<std::endl;
     m_frame_start_destin=imgs;
     ready_to_work();
   }
