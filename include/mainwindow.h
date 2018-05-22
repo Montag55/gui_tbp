@@ -45,6 +45,7 @@ private slots:
 private:
     QGroupBox *createControls(const QString &title);
     QLabel *createImage(const QString &title);
+    void *connect_slider(RangeWidget* rangeSlider);
 
 
     int count_sliders;

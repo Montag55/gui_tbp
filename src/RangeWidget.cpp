@@ -3,16 +3,16 @@
 #include <QtDebug>
 #include <iostream>
 
-RangeWidget::RangeWidget(Qt::Orientation orientation/*,Segment* segment_in*/, QWidget *parent):
-      //segment(segment_in),
+RangeWidget::RangeWidget(Qt::Orientation orientation, int vidLength, QWidget *parent):
       QWidget(parent),
       _orientation(orientation),
+      _videoLength(vidLength),
       _handleWidth(10),
       _handleHeight(10),
       _minimum(0),
-      _maximum(1000),
-      _firstValue(100),
-      _secondValue(900),
+      _maximum(vidLength),
+      _firstValue(vidLength*0.1),
+      _secondValue(vidLength*0.3),
       _firstHandlePressed(false),
       _secondHandlePressed(false),
       _firstHandleColor(style()->standardPalette().highlight().color()),

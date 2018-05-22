@@ -153,6 +153,13 @@ void Base::update_result(){
   }
 }
 
+int                Base::get_video_size()
+{
+    std::cout<<"inbase:"<< m_video.get(CV_CAP_PROP_FRAME_COUNT)-1<<"\n";
+    return m_video.get(CV_CAP_PROP_FRAME_COUNT)-1;
+}
+
+
 /*  some getter...
 std::string const& Base::get_file() const{
   return m_file;

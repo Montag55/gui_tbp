@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->base = new Base("/home/lucas/Videos/1.mp4");
 
-
     this->count_sliders = 1;
     this->grid = new QGridLayout;
     this->controlsLayout = new QGridLayout;
@@ -20,9 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle(tr("Time-Based-Picture"));
     resize(800, 600);
 
-}
-void test_f(){
-    std::cout<<"test\n";
 }
 
 QLabel *MainWindow::createImage(const QString &path){
@@ -47,21 +43,21 @@ QGroupBox *MainWindow::createControls(const QString &title) {
     QLabel *maximumLabel = new QLabel(tr("max. value:"));
 
     QSpinBox *minimumSpinBox = new QSpinBox;
-    minimumSpinBox->setRange(0, 100);
+    minimumSpinBox->setRange(0, base->get_video_size());
     minimumSpinBox->setSingleStep(1);
 
     QSpinBox *maximumSpinBox = new QSpinBox;
-    maximumSpinBox->setRange(0, 100);
+    maximumSpinBox->setRange(0, base->get_video_size());
     maximumSpinBox->setSingleStep(1);
 
-    int startframe=0;
-    int endframe= 10;
-    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
+
+    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal, base->get_video_size());
     this->count_sliders += 1;
 
-    //signal connect interfaces!:
-    Segment_Q *seg = new Segment_Q(base->add_segment(startframe, endframe));
-    connect(rangeSlider, SIGNAL(firstValueChanged(int)), seg, SLOT(set_firstVal(int)));
+    connect(rangeSlider, SIGNAL(firstValueChanged(int)), minimumSpinBox, SLOT(setValue(int)));
+    connect(rangeSlider, SIGNAL(secondValueChanged(int)), maximumSpinBox, SLOT(setValue(int)));
+
+    connect_slider(rangeSlider);
 
     QPushButton *addButton = new QPushButton("Add", this);
     connect(addButton, SIGNAL(clicked()), this, SLOT(on_addButoon_click()));
@@ -76,14 +72,26 @@ QGroupBox *MainWindow::createControls(const QString &title) {
     return controlsGroup;
 }
 
+void *MainWindow::connect_slider(RangeWidget* rangeSlider){
+
+    int startframe = 0;
+    int endframe   = 10;
+
+    Segment_Q *seg = new Segment_Q(base->add_segment(startframe, endframe));
+    connect(rangeSlider, SIGNAL(firstValueChanged(int)), seg, SLOT(set_firstVal(int)));
+    connect(rangeSlider, SIGNAL(secondValueChanged(int)), seg, SLOT(set_secondVal(int)));
+    //connect: set_localIntensity(float)
+    //connect: set_globalIntensity(float)
+}
+
 void *MainWindow::on_addButoon_click(){
-    std::cout << "added slider" << std::endl;
+
     int startframe=0;
     int endframe= 10;
 
-    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal);
-
+    RangeWidget *rangeSlider = new RangeWidget(Qt::Horizontal, base->get_video_size());
     Segment_Q *seg = new Segment_Q(base->add_segment(startframe, endframe));
+
     connect(rangeSlider, SIGNAL(firstValueChanged(int)), seg, SLOT(set_firstVal(int)));
 
     this->controlsLayout->addWidget(rangeSlider,this->count_sliders + 1, 0, this->count_sliders + 1, 5);

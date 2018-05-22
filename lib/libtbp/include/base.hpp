@@ -38,7 +38,7 @@ public:
 
         //PROT?:::::::::::::::::::::::::::::::::::::::::::::::
         void                add_work(Segment* new_seg); //maybe protected?
-
+        int                 get_video_size();
 private:
         void                update_result();  //whenever values_abs and values_fac
                                               //are edited, we need to update the

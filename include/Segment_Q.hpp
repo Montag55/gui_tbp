@@ -24,6 +24,17 @@ class Segment_Q : public QWidget {
             m_seg->set_startframe(start);
         }
 
+        inline void set_secondVal(int end){
+            m_seg->set_endframe(end);
+        }
+
+        inline void set_localIntensity(float inten){
+            m_seg->set_local_intensity(inten);
+        }
+
+        inline void set_globalIntensity(float inten){
+            m_seg->set_global_intensity(inten);
+        }
 };
 
 

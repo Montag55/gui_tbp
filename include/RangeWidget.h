@@ -19,7 +19,7 @@ private:
     Qt::Orientation _orientation;
 
     //int id;
-   // Segment* segment;
+    int _videoLength;
     int _handleWidth;
     int _handleHeight;
     int _minimum;
@@ -45,10 +45,11 @@ protected:
     qreal span() const;
 
 public:
-    RangeWidget(Qt::Orientation orientation = Qt::Vertical/*, Segment* segment_in=nullptr*/, QWidget *parent = nullptr);
+    RangeWidget(Qt::Orientation orientation = Qt::Vertical, int vid_length = 0, QWidget *parent = nullptr);
 
     QSize minimumSizeHint() const;
 
+    inline int videoLength() const {return _videoLength; }
     inline int firstValue() const { return _firstValue; }
     inline int secondValue() const { return _secondValue; }
     inline int minimum() const { return _minimum; }
